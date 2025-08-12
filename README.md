@@ -1,51 +1,40 @@
-# Task 1: Reconnaissance & Scanning
+# Task 2: Web Application Vulnerability Scanning
 
 **Purpose:**  
-Demonstrate basic reconnaissance using Nmap and Netdiscover in a controlled, legal lab environment. This project contains sample outputs, parsers, and documentation so you can upload it to GitHub.
+Demonstrate scanning a test web application using **OWASP ZAP** to identify common vulnerabilities like Cross-Site Scripting (XSS) and SQL Injection (SQLi). This project contains sample reports, scripts, and documentation for educational and authorized use.
 
 **IMPORTANT — Legal & Ethical Notice**
-- Only perform network scanning on systems and networks you own or have explicit permission to test.
-- Never scan production networks or systems without written authorization.
-- Use this project for learning, lab exercises, or authorized engagements only.
+- Only scan web applications that you own or have explicit permission to test.
+- Do not target live systems without written authorization.
+- Use intentionally vulnerable applications like DVWA, Juice Shop, or Mutillidae for practice.
 
 ## Project Structure
 ```
-Reconnaissance-Scanning-Task/
+WebApp-Vulnerability-Scanning-Task/
 ├── README.md
 ├── LICENSE
 ├── .gitignore
 ├── requirements.txt
-├── run_scans.sh        # Example, commented scanning commands (for lab use)
+├── zap_scan.sh            # Example OWASP ZAP CLI commands
 ├── scripts/
-│   └── parse_nmap.py   # Simple parser for nmap text output
+│   └── parse_zap_report.py
 └── reports/
-    ├── nmap_scan.txt
-    ├── netdiscover.txt
-    └── screenshots/   # add screenshots here (not included)
+    ├── zap_report.html
+    ├── zap_report.xml
+    └── screenshots/
 ```
 
 ## How to use
 1. Read the legal notice above.
-2. Place real scan outputs (if permitted) into `reports/` or add screenshots in `reports/screenshots/`.
-3. Inspect `scripts/parse_nmap.py` to extract open ports from a saved nmap text output:
+2. Install OWASP ZAP ([https://www.zaproxy.org/download/](https://www.zaproxy.org/download/)).
+3. Launch OWASP ZAP and set the target to an authorized test application (e.g., DVWA).
+4. Run scans using either the GUI or CLI. Example CLI usage:
    ```bash
-   python3 scripts/parse_nmap.py reports/nmap_scan.txt
+   ./zap_scan.sh
    ```
-4. Commit and push to your GitHub repository:
-   ```bash
-   git init
-   git add .
-   git commit -m "Add reconnaissance task project files"
-   git remote add origin https://github.com/<username>/<repo>.git
-   git branch -M main
-   git push -u origin main
-   ```
+5. View the generated HTML/XML reports in the `reports/` folder.
 
 ## What I included
-- Sample nmap and netdiscover outputs (sanitized/example).
-- A small parser script that demonstrates extracting open ports from an nmap text report.
-- Example `run_scans.sh` that shows safe example commands (commented) for lab usage.
-
-## If you want:
-- I can add real screenshots you provide into `reports/screenshots/`.
-- I can create the GitHub repo and push for you (you'll need to provide an access token).
+- Example OWASP ZAP CLI command script (`zap_scan.sh`).
+- Sample sanitized HTML/XML reports.
+- A Python parser for ZAP XML reports.
