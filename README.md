@@ -1,40 +1,46 @@
-# Task 2: Web Application Vulnerability Scanning
+# Task 3: Password Cracking
 
 **Purpose:**  
-Demonstrate scanning a test web application using **OWASP ZAP** to identify common vulnerabilities like Cross-Site Scripting (XSS) and SQL Injection (SQLi). This project contains sample reports, scripts, and documentation for educational and authorized use.
+Demonstrate password hash cracking techniques using **John the Ripper** or **Hashcat** in a controlled and legal environment.  
+This project contains example hash files, cracking commands, and scripts for parsing results.
 
 **IMPORTANT — Legal & Ethical Notice**
-- Only scan web applications that you own or have explicit permission to test.
-- Do not target live systems without written authorization.
-- Use intentionally vulnerable applications like DVWA, Juice Shop, or Mutillidae for practice.
+- Only crack hashes that you own or have explicit permission to test.
+- Never attempt to crack real user passwords or unauthorized hashes.
+- Use test hashes or hashes from intentionally vulnerable labs.
 
 ## Project Structure
 ```
-WebApp-Vulnerability-Scanning-Task/
+Password-Cracking-Task/
 ├── README.md
 ├── LICENSE
 ├── .gitignore
 ├── requirements.txt
-├── zap_scan.sh            # Example OWASP ZAP CLI commands
+├── john_crack.sh         # Example commands for John the Ripper
+├── hashcat_crack.sh      # Example commands for Hashcat
+├── hashes/
+│   ├── sample_md5.txt
+│   ├── sample_sha1.txt
 ├── scripts/
-│   └── parse_zap_report.py
+│   └── parse_cracked.py
 └── reports/
-    ├── zap_report.html
-    ├── zap_report.xml
+    ├── john_results.txt
+    ├── hashcat_results.txt
     └── screenshots/
 ```
 
 ## How to use
-1. Read the legal notice above.
-2. Install OWASP ZAP ([https://www.zaproxy.org/download/](https://www.zaproxy.org/download/)).
-3. Launch OWASP ZAP and set the target to an authorized test application (e.g., DVWA).
-4. Run scans using either the GUI or CLI. Example CLI usage:
-   ```bash
-   ./zap_scan.sh
-   ```
-5. View the generated HTML/XML reports in the `reports/` folder.
+### Using John the Ripper
+```bash
+./john_crack.sh
+```
 
-## What I included
-- Example OWASP ZAP CLI command script (`zap_scan.sh`).
-- Sample sanitized HTML/XML reports.
-- A Python parser for ZAP XML reports.
+### Using Hashcat
+```bash
+./hashcat_crack.sh
+```
+
+## Included
+- Example MD5 and SHA1 hashes
+- Example cracking commands (commented for safety)
+- Parser for cracked results
