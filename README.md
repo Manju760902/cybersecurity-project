@@ -1,46 +1,45 @@
-# Task 3: Password Cracking
+# Task 4: Packet Analysis with Wireshark
 
 **Purpose:**  
-Demonstrate password hash cracking techniques using **John the Ripper** or **Hashcat** in a controlled and legal environment.  
-This project contains example hash files, cracking commands, and scripts for parsing results.
+Demonstrate capturing and analyzing network packets using **Wireshark** to detect suspicious or malicious activities.
 
 **IMPORTANT — Legal & Ethical Notice**
-- Only crack hashes that you own or have explicit permission to test.
-- Never attempt to crack real user passwords or unauthorized hashes.
-- Use test hashes or hashes from intentionally vulnerable labs.
+- Only capture packets on networks you own or have explicit permission to monitor.
+- Avoid capturing sensitive personal or organizational data without authorization.
+- Use simulated network traffic or lab environments for testing.
 
 ## Project Structure
 ```
-Password-Cracking-Task/
+Packet-Analysis-Wireshark-Task/
 ├── README.md
 ├── LICENSE
 ├── .gitignore
 ├── requirements.txt
-├── john_crack.sh         # Example commands for John the Ripper
-├── hashcat_crack.sh      # Example commands for Hashcat
-├── hashes/
-│   ├── sample_md5.txt
-│   ├── sample_sha1.txt
+├── capture_instructions.txt
+├── pcap_samples/
+│   ├── sample_http.pcap
+│   ├── sample_attack.pcap
 ├── scripts/
-│   └── parse_cracked.py
+│   └── analyze_pcap.py
 └── reports/
-    ├── john_results.txt
-    ├── hashcat_results.txt
+    ├── http_analysis.txt
+    ├── attack_analysis.txt
     └── screenshots/
 ```
 
 ## How to use
-### Using John the Ripper
-```bash
-./john_crack.sh
-```
-
-### Using Hashcat
-```bash
-./hashcat_crack.sh
-```
+1. Open Wireshark and select the correct network interface.
+2. Start capturing packets.
+3. Apply filters like:
+   ```
+   http
+   tcp.port == 80
+   ip.addr == 192.168.1.100
+   ```
+4. Save captures in `.pcap` format into the `pcap_samples/` folder.
+5. Use `analyze_pcap.py` to extract useful information from packet captures.
 
 ## Included
-- Example MD5 and SHA1 hashes
-- Example cracking commands (commented for safety)
-- Parser for cracked results
+- Example `.pcap` files (dummy/sanitized)
+- Example analyses for HTTP traffic and attack detection
+- Script to parse `.pcap` files for suspicious activity

@@ -1,0 +1,8 @@
+Wireshark Capture Instructions (Lab Use Only)
+---------------------------------------------
+1. Launch Wireshark.
+2. Select your network interface.
+3. Click 'Start Capturing Packets'.
+4. Apply display filters to focus on relevant traffic (e.g., http, tcp.port == 80).
+5. Save capture as a .pcap file.
+6. Analyze traffic manually or using scripts.
